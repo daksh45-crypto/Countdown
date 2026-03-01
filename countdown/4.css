@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  transition: background 1.5s ease;
+}
+
+body.day {
+  background: linear-gradient(135deg, #e6a4b4, #cbb4d4);
+  color: #fff;
+}
+
+body.night {
+  background: radial-gradient(circle at bottom, #020111, #000000 70%);
+  color: #fff;
+}
+
+.night-sky {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+  z-index: 1;
+}
+
+body.night .night-sky {
+  opacity: 1;
+}
+
+.star {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, white, transparent);
+  animation: shoot 4s linear infinite;
+  opacity: 0.8;
+}
+
+.star:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+.star:nth-child(2) { top: 30%; left: 60%; animation-delay: 1s; }
+.star:nth-child(3) { top: 50%; left: 40%; animation-delay: 2s; }
+.star:nth-child(4) { top: 70%; left: 80%; animation-delay: 3s; }
+.star:nth-child(5) { top: 20%; left: 90%; animation-delay: 4s; }
+
+@keyframes shoot {
+  0% { transform: translateX(0) translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateX(-600px) translateY(400px); opacity: 0; }
+}
+
+
+.container {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.6rem;
+  margin-bottom: 35px;
+}
+
+.timer {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.box {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+  padding: 22px 26px;
+  border-radius: 22px;
+  min-width: 95px;
+}
+
+.box span {
+  font-size: 2.3rem;
+  font-weight: bold;
+}
+
+.message {
+  margin-top: 40px;
+  max-width: 520px;
+  line-height: 1.6;
+  font-size: 1.15rem;
+}
+
+
+@media (max-width: 600px) {
+  h1 { font-size: 2.1rem; }
+  .box span { font-size: 2rem; }
+}
