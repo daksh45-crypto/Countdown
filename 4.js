@@ -1,4 +1,4 @@
-const targetDate = new Date(2026, 2, 4, 23, 0, 0).getTime();
+const targetDate = new Date(2026, 7, 7, 13, 0, 0).getTime();
 
 const d = document.getElementById("days");
 const h = document.getElementById("hours");
